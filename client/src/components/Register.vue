@@ -14,6 +14,8 @@
       v-model="password"
       placeholder="password" />
     <br>
+    <div v-html="error" class="error"></div>
+    <br>
     <button 
       @click="register">
       Register
@@ -27,23 +29,32 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      error: null
     };
   },
   methods: {
     // Button has on click to call this function from AuthenticationService
     // register is the name of the function on the click event
     async register() {
-      // this runction comes from /services/AuthenticationService
-      await AuthenticationService.register({
-        // the backend will receive this information
-        email: this.email,
-        password: this.password
-      });
+      try {
+        // this runction comes from /services/AuthenticationService
+        await AuthenticationService.register({
+          // the backend will receive this information
+          email: this.email,
+          password: this.password
+        });
+      } catch (error) {
+        // This error comes from AuthenticationService and AuthenticationServicePolicy
+        this.error = error.response.data.error;
+      }
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
+.error {
+  color: red;
+}
 </style>

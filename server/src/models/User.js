@@ -4,5 +4,5 @@ module.exports = (sequelize, DataTypes) =>
       type: DataTypes.STRING,
       unique: true
     },
-    passord: DataTypes.PASSWORD
+    passord: DataTypes.STRING
   });
