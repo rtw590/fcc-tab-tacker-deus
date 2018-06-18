@@ -3,7 +3,7 @@
     <v-flex xs6 offset-sx3 class="mt-5">
       <div class="white elevation-2">
         <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
+          <v-toolbar-title>Login</v-toolbar-title>
         </v-toolbar>
         <div class="pl-4 pr-4 pt-2 pb-2">
           <v-text-field
@@ -22,8 +22,8 @@
           <v-btn
           dark
           class="cyan"
-            @click="register">
-            Register
+            @click="login">
+            Login
           </v-btn>
       </div>
     </div>
@@ -44,15 +44,16 @@ export default {
   },
   methods: {
     // Button has on click to call this function from AuthenticationService
-    // register is the name of the function on the click event
-    async register() {
+    // login is the name of the function on the click event
+    async login() {
       try {
-        const response = await AuthenticationService.register({
+        // this runction comes from /services/AuthenticationService
+        const response = await AuthenticationService.login({
           // the backend will receive this information
           email: this.email,
           password: this.password
         });
-        // We call the setToken and setUser action that is from the store and we pass is the action name and the token/user
+        // We call the setToken action that is from the store and we pass is the action name and the token
         this.$store.dispatch("setToken", response.data.token);
         this.$store.dispatch("setUser", response.data.user);
       } catch (error) {
