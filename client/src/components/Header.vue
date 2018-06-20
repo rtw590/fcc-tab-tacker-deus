@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar fixed class="cyan" dark>
+  <v-toolbar  class="cyan" dark>
 
 
     <v-toolbar-items>
