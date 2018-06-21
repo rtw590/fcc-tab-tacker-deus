@@ -11,7 +11,10 @@ module.exports = app => {
     AuthenticationControllerPolicy.register,
     AuthenticationController.register
   );
+  // We use controllers to keep the logic out of the routes and to keep it clean here
   app.post("/login", AuthenticationController.login);
   app.get("/songs", SongsController.index);
+  app.get("/songs/:songId", SongsController.show);
+  app.put("/songs/:songId", SongsController.put);
   app.post("/songs", SongsController.post);
 };
