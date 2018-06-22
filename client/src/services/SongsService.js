@@ -2,8 +2,12 @@ import Api from "@/services/Api";
 
 export default {
   // You can call this function in other files by using SongsService.index
-  index() {
-    return Api().get("songs");
+  index(search) {
+    return Api().get("songs", {
+      params: {
+        search: search
+      }
+    });
   },
   // Call this function with SongsService.show and it will hit the backend to retreive one song
   show(songId) {

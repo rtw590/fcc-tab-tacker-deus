@@ -29,16 +29,12 @@
 </template>
 
 <script>
-import Panel from "@/components/Panel";
 export default {
   props: ["song"],
   methods: {
     navigateTo(route) {
       this.$router.push(route);
     }
-  },
-  components: {
-    Panel
   }
 };
 </script>

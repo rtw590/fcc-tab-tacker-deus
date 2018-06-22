@@ -28,7 +28,6 @@
 
 <script>
 import AuthenticationService from "@/services/AuthenticationService";
-import Panel from "@/components/Panel";
 export default {
   // Set two way bindings for these variables used with v-model above
   data() {
@@ -51,14 +50,14 @@ export default {
         // We call the setToken and setUser action that is from the store and we pass is the action name and the token/user
         this.$store.dispatch("setToken", response.data.token);
         this.$store.dispatch("setUser", response.data.user);
+        this.$router.push({
+          name: "songs"
+        });
       } catch (error) {
         // This error comes from AuthenticationService and AuthenticationServicePolicy
         this.error = error.response.data.error;
       }
     }
-  },
-  components: {
-    Panel
   }
 };
 </script>

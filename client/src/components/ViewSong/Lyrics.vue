@@ -8,13 +8,9 @@
 </template>
 
 <script>
-import Panel from "@/components/Panel";
 export default {
   // This prop is being passed down from the parent component
-  props: ["song"],
-  components: {
-    Panel
-  }
+  props: ["song"]
 };
 </script>
 

@@ -3,7 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Register from "./components/Register.vue";
 import Login from "./components/Login.vue";
-import Songs from "./components/Songs.vue";
+import Songs from "./components/Songs/Index.vue";
 import CreateSong from "./components/CreateSong.vue";
 import ViewSong from "./components/ViewSong/Index.vue";
 import EditSong from "./components/EditSong.vue";
